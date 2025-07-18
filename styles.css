@@ -1,0 +1,61 @@
+/* Global Styles */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f7fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* Card Layout */
+.pass-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.pass-card h2 {
+  margin-top: 0;
+  color: #0077cc;
+}
+
+.pass-detail {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.error {
+  background: #ffe5e5;
+  color: #b00020;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  background-color: #e0e0e0;
+  font-size: 0.9rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .pass-card {
+    padding: 1.5rem;
+  }
+
+  .pass-detail {
+    font-size: 1rem;
+  }
+}
