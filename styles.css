@@ -81,20 +81,6 @@ body {
   margin-top: 1rem;
 }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: var(--footer-bg);
-  color: var(--footer-text);
-  font-size: 1rem;
-  letter-spacing: 1px;
-  margin-top: 2rem;
-  width: 100vw;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-}
-
 @media (max-width: 600px) {
   .container {
     padding: 0.5rem;
@@ -111,4 +97,24 @@ footer {
     font-size: 1rem;
     max-width: 100%;
   }
+}
+/* For details.html: make all text white except the footer */
+body.details-page, .details-page .container, .details-page .pass-card, .details-page .info, .details-page .label, .details-page h2 {
+  color: #fff !important;
+  background: #0a2342 !important;
+}
+
+/* Keep footer gold on dark blue and centered */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #0a2342;
+  color: #ffd700;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-top: 2rem;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  bottom: 0;
 }
