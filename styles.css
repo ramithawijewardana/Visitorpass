@@ -118,3 +118,23 @@ footer {
   left: 0;
   bottom: 0;
 }
+.glass-card {
+  background: rgba(255, 255, 255, 0.15); /* semi-transparent white */
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(10,35,66,0.18);
+  padding: 2.5rem 2rem 2rem 2rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 320px;
+  max-width: 95vw;
+  backdrop-filter: blur(12px); /* frosted glass effect */
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255,255,255,0.25);
+}
+
+.details-page .glass-card,
+.details-page .glass-card * {
+  color: #fff !important;
+}
