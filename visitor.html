@@ -1,40 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Visitor Pass QR</title>
-  <link rel="stylesheet" href="styles.css"/>
-  <link rel="icon" href="favicon.ico" />
-</head>
-<body>
-  <div class="container" id="qr-container">
-    <h2>Show this QR code at the entrance</h2>
+<div class="container">
+  <div class="pass-card">
+    <div class="instruction">Show this QR code at the entrance</div>
     <div id="qrcode"></div>
   </div>
-  <footer>Powered by Group Nestify</footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <script>
-    // Get params
-    function getQueryParams() {
-      const params = {};
-      window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str,key,value) {
-        params[key] = decodeURIComponent(value.replace(/\+/g, " "));
-      });
-      return params;
-    }
-    const params = getQueryParams();
-    // Generate a secret (for demo, use a hash or random string)
-    const secret = Math.random().toString(36).substring(2, 10);
-    // Build details.html link
-    const detailParams = Object.entries(params).map(([k,v]) => `${k}=${encodeURIComponent(v)}`).join('&') + `&secret=${secret}`;
-    const detailsLink = `${window.location.origin}/details.html?${detailParams}`;
-    // Generate QR code for details.html
-    new QRCode(document.getElementById("qrcode"), {
-      text: detailsLink,
-      width: 220,
-      height: 220
-    });
-  </script>
-</body>
-</html>
+</div>
+<footer>
+  Powered by Group Nestify
+</footer>
