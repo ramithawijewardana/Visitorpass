@@ -1,8 +1,21 @@
+/* Color Theme */
+:root {
+  --primary: #0a2342;      /* Dark Blue */
+  --accent: #ffd700;       /* Gold */
+  --background: #f4f7fa;
+  --card-bg: #fff;
+  --text: #222;
+  --error-bg: #ffe5e5;
+  --error-text: #b00020;
+  --footer-bg: #0a2342;
+  --footer-text: #ffd700;
+}
+
 /* Global Styles */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f4f7fa;
-  color: #333;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  background: var(--background);
+  color: var(--text);
   margin: 0;
   padding: 0;
 }
@@ -15,29 +28,56 @@ body {
 
 /* Card Layout */
 .pass-card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(10,35,66,0.10);
   padding: 2rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .pass-card h2 {
   margin-top: 0;
-  color: #0077cc;
+  color: var(--primary);
+  letter-spacing: 1px;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .pass-detail {
   margin: 0.5rem 0;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  width: 100%;
+  text-align: left;
+  max-width: 350px;
+}
+
+.label {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+#qrcode {
+  margin: 1.5rem auto 1rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--accent);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(10,35,66,0.08);
+  width: fit-content;
 }
 
 .error {
-  background: #ffe5e5;
-  color: #b00020;
+  background: var(--error-bg);
+  color: var(--error-text);
   padding: 1rem;
-  border-radius: 6px;
+  border-radius: 8px;
   text-align: center;
+  margin-top: 1rem;
 }
 
 /* Footer */
@@ -45,17 +85,29 @@ footer {
   text-align: center;
   padding: 1rem;
   margin-top: 2rem;
-  background-color: #e0e0e0;
-  font-size: 0.9rem;
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  font-size: 1rem;
+  letter-spacing: 1px;
 }
 
 /* Mobile Responsive */
 @media (max-width: 600px) {
-  .pass-card {
-    padding: 1.5rem;
+  .container {
+    padding: 1rem;
   }
-
+  .pass-card {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  .pass-card h2 {
+    font-size: 1.3rem;
+  }
   .pass-detail {
     font-size: 1rem;
+    max-width: 100%;
+  }
+  #qrcode {
+    padding: 0.5rem;
   }
 }
