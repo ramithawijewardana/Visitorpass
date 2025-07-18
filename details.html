@@ -8,8 +8,10 @@
   <link rel="icon" href="favicon.ico" />
 </head>
 <body class="details-page">
-  <div class="container" id="details-container">
-    <!-- Details will be injected here -->
+  <div class="container">
+    <div class="glass-card" id="details-container">
+      <!-- Details will be injected here -->
+    </div>
   </div>
   <footer>Powered by Group Nestify</footer>
   <script>
@@ -21,9 +23,9 @@
       return params;
     }
     const params = getQueryParams();
-    // Only show details if secret is present
+    const detailsDiv = document.getElementById('details-container');
     if (params.secret && params.name && params.room && params.date && params.time && params.purpose) {
-      document.getElementById('details-container').innerHTML = `
+      detailsDiv.innerHTML = `
         <h2>Visitor Pass</h2>
         <div class="info"><span class="label">Name:</span> ${params.name}</div>
         <div class="info"><span class="label">Room:</span> ${params.room}</div>
@@ -32,7 +34,7 @@
         <div class="info"><span class="label">Purpose:</span> ${params.purpose}</div>
       `;
     } else {
-      document.getElementById('details-container').innerHTML = `<span style="color:red;">Access denied or missing data.</span>`;
+      detailsDiv.innerHTML = '<span style="color:red;">Access denied or missing data.</span>';
     }
   </script>
 </body>
