@@ -98,13 +98,40 @@ body {
     max-width: 100%;
   }
 }
-/* For details.html: make all text white except the footer */
-body.details-page, .details-page .container, .details-page .pass-card, .details-page .info, .details-page .label, .details-page h2 {
-  color: #fff !important;
-  background: #0a2342 !important;
+
+
+body.details-page {
+  background: #0a2342;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Keep footer gold on dark blue and centered */
+.glass-card {
+  margin: 5vh auto 0 auto;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(10,35,66,0.25);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1.5px solid rgba(255,255,255,0.22);
+  max-width: 370px;
+  width: 90vw;
+  padding: 2.5rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.glass-card h2,
+.glass-card .info,
+.glass-card .label {
+  color: #fff !important;
+}
+
 footer {
   text-align: center;
   padding: 1rem;
@@ -117,24 +144,12 @@ footer {
   position: fixed;
   left: 0;
   bottom: 0;
-}
-.glass-card {
-  background: rgba(255, 255, 255, 0.15); /* semi-transparent white */
-  border-radius: 18px;
-  box-shadow: 0 6px 32px rgba(10,35,66,0.18);
-  padding: 2.5rem 2rem 2rem 2rem;
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 320px;
-  max-width: 95vw;
-  backdrop-filter: blur(12px); /* frosted glass effect */
-  -webkit-backdrop-filter: blur(12px);
-  border: 1.5px solid rgba(255,255,255,0.25);
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 
-.details-page .glass-card,
-.details-page .glass-card * {
-  color: #fff !important;
+@media (max-width: 600px) {
+  .glass-card {
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+  }
 }
