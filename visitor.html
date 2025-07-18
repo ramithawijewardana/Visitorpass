@@ -9,13 +9,14 @@
 </head>
 <body>
   <div class="container" id="pass-container">
-    <!-- Visitor pass or error will be injected by script.js -->
+    <div id="qrcode"></div>
+    <button id="show-details-btn">For Security: Show Details</button>
+    <div id="details" style="display:none;"></div>
   </div>
-
   <footer>
     Powered by Group Nestify
   </footer>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
