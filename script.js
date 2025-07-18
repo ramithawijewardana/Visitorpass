@@ -1,42 +1,36 @@
-// script.js
-
-// Parse URL query parameters
 function getQueryParams() {
-  const params = new URLSearchParams(window.location.search);
-  return {
-    name: params.get("name"),
-    room: params.get("room"),
-    date: params.get("date"),
-    time: params.get("time"),
-    purpose: params.get("purpose")
-  };
+  const params = {};
+  window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str,key,value) {
+    params[key] = decodeURIComponent(value.replace(/\+/g, " "));
+  });
+  return params;
 }
+const params = getQueryParams();
 
-// Render visitor pass or error message
-function renderVisitorPass() {
-  const container = document.getElementById("pass-container");
-  const { name, room, date, time, purpose } = getQueryParams();
+// Generate QR code for the current URL
+new QRCode(document.getElementById("qrcode"), {
+  text: window.location.href,
+  width: 200,
+  height: 200
+});
 
-  if (!name || !room || !date || !time || !purpose) {
-    container.innerHTML = `
-      <div class="error">
-        Error: Missing one or more required fields. Please check the URL parameters.
-      </div>
-    `;
-    return;
-  }
-
-  container.innerHTML = `
-    <div class="pass-card">
+// Show details only when button is clicked
+const detailsDiv = document.getElementById('details');
+const btn = document.getElementById('show-details-btn');
+btn.onclick = function() {
+  if (params.name && params.room && params.date && params.time && params.purpose) {
+    detailsDiv.innerHTML = `
       <h2>Visitor Pass</h2>
-      <div class="pass-detail"><strong>Name:</strong> ${decodeURIComponent(name)}</div>
-      <div class="pass-detail"><strong>Room:</strong> ${decodeURIComponent(room)}</div>
-      <div class="pass-detail"><strong>Date:</strong> ${decodeURIComponent(date)}</div>
-      <div class="pass-detail"><strong>Time:</strong> ${decodeURIComponent(time)}</div>
-      <div class="pass-detail"><strong>Purpose:</strong> ${decodeURIComponent(purpose)}</div>
-    </div>
-  `;
-}
-
-// Execute on load
-document.addEventListener("DOMContentLoaded", renderVisitorPass);
+      <div class="info"><span class="label">Name:</span> ${params.name}</div>
+      <div class="info"><span class="label">Room:</span> ${params.room}</div>
+      <div class="info"><span class="label">Date:</span> ${params.date}</div>
+      <div class="info"><span class="label">Time:</span> ${params.time}</div>
+      <div class="info"><span class="label">Purpose:</span> ${params.purpose}</div>
+    `;
+    detailsDiv.style.display = "block";
+    btn.style.display = "none";
+  } else {
+    detailsDiv.innerHTML = `<span style="color:red;">Invalid or missing visitor data.</span>`;
+    detailsDiv.style.display = "block";
+  }
+};
